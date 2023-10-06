@@ -20,6 +20,11 @@ app.use(cors({
     credentials : true
 }))
 
+app.get("/", (req, res) => {
+    res.setHeader("Access-Control-Allow-Credentials", "true")
+    res.send('API is running...')
+})
+
 //SETUP MIDDLEWARES
 app.use(express.json())
 app.use(express.urlencoded({ extended: true, limit: '30mb' }))
