@@ -15,7 +15,7 @@ MONGODB_URI = process.env.MONGODB_URI
 
 //SETUP CORS FOR UPDATING THE POLICIES WITH INTERACTING WITH THE FRONTEND SERVER
 app.use(cors({
-    origin : `http://localhost:3000`,
+    origin : `https://kassemnotesfrontend.onrender.com`,
     methods : ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD', 'DELETE'],
     credentials : true
 }))
