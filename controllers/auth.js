@@ -83,7 +83,7 @@ const login = async (req, res) => {
 
             const token = jwt.sign({id: user._id, username: username}, process.env.JWT_SECRET)
             res.cookie('jwt', token)
-            return res.json({status: 'ok', message: `${username} has login to his account!`})
+            return res.json({status: 'ok', message: `${username} has login to his account!`, token: token})
 
         }else{
             res.json({status: 'failed', message: 'Something went wrong, try again later!'})
