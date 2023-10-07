@@ -117,7 +117,7 @@ const profile = async (req, res) => {
 }
 
 const logout = async (req, res) => {
-    await res.cookie('jwt', '', { maxAge: 1 }, { sameSite: 'None', secure: true })
+    await res.cookie('jwt', '', { sameSite: 'None', secure: true }, { maxAge: 1 })
     res.json({ status: "ok", message: "removed jwt" })
 }
 
