@@ -35,7 +35,7 @@ const register = async (req, res) => {
             const response = await User.create({username, password: passwordHash, picturePath, birthDate})
             const userInfo = {username, picturePath, birthDate}
             const token = jwt.sign({id: response._id, username: username}, process.env.JWT_SECRET)
-            res.cookie('jwt', token, { sameSite: 'None' })
+            res.cookie('jwt', token, { sameSite: 'None', secure: true })
             res.json({status: 'ok', userInfo: userInfo, message: 'account has been created!'})
 
         }catch(err){
