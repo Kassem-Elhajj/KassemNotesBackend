@@ -13,7 +13,7 @@ const register = async (req, res) => {
         return res.json({status: 'failed', message: 'You are already logged in'})
     }
 
-    let picturePath = ''
+    let picturePath = 'profilePictures/21-213224_unknown-person-icon-png-download.png'
     let {username, password, reenteredPassword, birthDate} = req.body
     let picture = req.file
     
