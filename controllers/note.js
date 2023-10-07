@@ -37,7 +37,7 @@ const post2 = async (req, res) => {
 
         const noteId = req.params.noteId
         const noteAudio = req.file
-
+        
         if(noteAudio){
             const note = await Note.findById(noteId)
             note.noteAudioPath = await noteAudio.path.slice(14)
