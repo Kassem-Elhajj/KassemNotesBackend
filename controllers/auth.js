@@ -82,7 +82,7 @@ const login = async (req, res) => {
         if(isMatch){
 
             const token = jwt.sign({id: user._id, username: username}, process.env.JWT_SECRET)
-            res.cookie('jwt', token)
+            res.cookie('jwt', token, { sameSite: 'None', secure: true })
             return res.json({status: 'ok', message: `${username} has login to his account!`, token: token})
 
         }else{
@@ -117,7 +117,7 @@ const profile = async (req, res) => {
 }
 
 const logout = async (req, res) => {
-    await res.cookie('jwt', '', { maxAge: 1 })
+    await res.cookie('jwt', '', { maxAge: 1 }, { sameSite: 'None', secure: true })
     res.json({ status: "ok", message: "removed jwt" })
 }
 
